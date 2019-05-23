@@ -1,0 +1,46 @@
+{
+  "name": "vyuldashev/laravel-dog-statsd",
+  "description": "Laravel DataDogs StatsD Agent Integration",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Vladimir Yuldashev",
+      "email": "misterio92@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^7.1.3",
+    "illuminate/support": "5.8.*",
+    "graze/dog-statsd": "^0.4.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^8.1",
+    "orchestra/testbench": "^3.8"
+  },
+  "autoload": {
+    "psr-4": {
+      "Vyuldashev\\DogStatsD\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Vyuldashev\\DogStatsD\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0-dev"
+    },
+    "laravel": {
+      "providers": [
+        "Vyuldashev\\DogStatsD\\DogStatsDServiceProvider"
+      ]
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "scripts": {
+    "test": "vendor/bin/phpunit"
+  }
+}
