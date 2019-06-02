@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Vyuldashev\DogStatsD;
 
 use Graze\DogStatsD\Client;

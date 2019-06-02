@@ -35,7 +35,10 @@
     "laravel": {
       "providers": [
         "Vyuldashev\\DogStatsD\\DogStatsDServiceProvider"
-      ]
+      ],
+      "aliases": {
+        "DogStatsd": "Vyuldashev\\DogStatsD\\DogStatsd"
+      }
     }
   },
   "minimum-stability": "dev",
