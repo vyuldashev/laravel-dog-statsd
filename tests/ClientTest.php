@@ -28,7 +28,7 @@ class ClientTest extends TestCase
         $this->assertSame('laravel_dog_statsd', $statsdExporter->getNamespace());
     }
 
-    public function testWrite(): void
+    public function testIncrement(): void
     {
         /** @var Client $statsdExporterClient */
         $statsdExporterClient = $this->app[Client::class];

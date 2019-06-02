@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Vyuldashev\DogStatsD;
 
 use Graze\DogStatsD\Client;
@@ -17,6 +19,16 @@ class DogStatsDServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(
             __DIR__ . '/../config/dog-statsd.php', 'dog-statsd'
         );
+
+//        $this->app['db']->listen(function (QueryExecuted $query) {
+//            $this->app[Client::class]->timing(
+//                'query_time',
+//                $query->time,
+//                [
+//                    'connection_name' => $query->connectionName,
+//                ]
+//            );
+//        });
     }
 
     public function boot(): void
@@ -52,5 +64,12 @@ class DogStatsDServiceProvider extends ServiceProvider
         $instanceTags = Arr::get($config, 'instances.' . $instance . '.tags', []);
 
         return array_merge($defaultTags, $instanceTags);
+    }
+
+    public function provides(): array
+    {
+        return [
+            Client::class,
+        ];
     }
 }

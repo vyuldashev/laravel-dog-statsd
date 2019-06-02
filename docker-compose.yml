@@ -8,3 +8,4 @@ services:
       - "9125:9125"
       - "9125:9125/udp"
     restart: unless-stopped
+
