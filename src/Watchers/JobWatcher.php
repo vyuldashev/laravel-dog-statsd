@@ -45,6 +45,10 @@ class JobWatcher
     {
         $uuid = Arr::get($event->job->payload(), 'job_watcher_uuid');
 
+        if (!$uuid || !isset($this->timers[$uuid])) {
+            return;
+        }
+
         $this->timers[$uuid] = microtime(true);
     }
 
