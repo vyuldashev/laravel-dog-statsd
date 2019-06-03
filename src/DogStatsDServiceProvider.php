@@ -7,14 +7,9 @@ namespace Vyuldashev\DogStatsD;
 use Graze\DogStatsD\Client;
 use Illuminate\Support\Arr;
 use Illuminate\Support\ServiceProvider;
-use Vyuldashev\DogStatsD\Watchers\JobWatcher;
 
 class DogStatsDServiceProvider extends ServiceProvider
 {
-    protected $watchers = [
-        JobWatcher::class,
-    ];
-
     public function register(): void
     {
         $this->publishes([
@@ -62,7 +57,7 @@ class DogStatsDServiceProvider extends ServiceProvider
             return $client;
         });
 
-        foreach ($this->watchers as $watcher) {
+        foreach (config('dog-statsd.watchers', []) as $watcher) {
             resolve($watcher)->register();
         }
     }

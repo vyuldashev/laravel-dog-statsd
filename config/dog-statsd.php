@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Str;
+use Vyuldashev\DogStatsD\Watchers\JobWatcher;
+use Vyuldashev\DogStatsD\Watchers\RequestWatcher;
 
 return [
 
@@ -21,9 +23,9 @@ return [
 
     ],
 
-    // TODO
-    'metrics' => [
-
+    'watchers' => [
+        JobWatcher::class,
+        RequestWatcher::class,
     ],
 
 ];

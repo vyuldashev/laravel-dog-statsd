@@ -1,24 +1,23 @@
 <?php
 
-namespace Vyuldashev\DogStatsD\Tests;
+declare(strict_types=1);
+
+namespace Vyuldashev\DogStatsD\Tests\Watchers;
 
 use Illuminate\Support\Facades\Route;
-use Vyuldashev\DogStatsD\Middleware\HttpRequestDurationMiddleware;
+use Vyuldashev\DogStatsD\Tests\TestCase;
 
-class ResponseTimeMetricMiddlewareTest extends TestCase
+class RequestWatcherTest extends TestCase
 {
     public function test(): void
     {
-        Route::middleware(HttpRequestDurationMiddleware::class)
-            ->group(function () {
-                Route::get('/users', function () {
-                    return 'Hello';
-                });
+        Route::get('/users', function () {
+            return 'Hello';
+        });
 
-                Route::post('/users', function () {
-                    return response(201);
-                });
-            });
+        Route::post('/users', function () {
+            return response(201);
+        });
 
         $this->get('/users');
         $this->post('/users');

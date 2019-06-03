@@ -2,12 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Vyuldashev\DogStatsD\Tests;
+namespace Vyuldashev\DogStatsD\Tests\Watchers;
 
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
+use Vyuldashev\DogStatsD\Tests\TestCase;
 
-class QueueTest extends TestCase
+class JobWatcherTest extends TestCase
 {
     public function test(): void
     {

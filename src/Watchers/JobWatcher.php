@@ -45,7 +45,7 @@ class JobWatcher
     {
         $uuid = Arr::get($event->job->payload(), 'job_watcher_uuid');
 
-        if (!$uuid || !isset($this->timers[$uuid])) {
+        if (!$uuid) {
             return;
         }
 
@@ -62,7 +62,7 @@ class JobWatcher
 
         $timing = round((microtime(true) - $this->timers[$uuid]) * 1000, 4);
 
-        $this->client->timing('_job_duration_seconds', $timing, [
+        $this->client->timing('job_duration_seconds', $timing, [
             'connection' => $event->connectionName,
             'queue' => $event->job->getQueue(),
             'display_name' => $event->job->resolveName(),
@@ -81,7 +81,7 @@ class JobWatcher
 
         $timing = round((microtime(true) - $this->timers[$uuid]) * 1000, 4);
 
-        $this->client->timing('_job_duration_seconds', $timing, [
+        $this->client->timing('job_duration_seconds', $timing, [
             'connection' => $event->connectionName,
             'queue' => $event->job->getQueue(),
             'display_name' => $event->job->resolveName(),
