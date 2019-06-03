@@ -35,13 +35,13 @@ class ClientTest extends TestCase
 
         $statsdExporterClient->increment('counter');
 
-        $this->assertSame('laravel_dog_statsd.counter:1|c|#env:testing,host:localhost', $statsdExporterClient->getLastMessage());
+        $this->assertSame('laravel_dog_statsd.counter:1|c|#app_name:laravel,env:production,host:localhost', $statsdExporterClient->getLastMessage());
         $this->assertTrue($statsdExporterClient->wasSuccessful());
 
         $server1 = Client::instance('server1');
         $server1->increment('counter1');
 
-        $this->assertSame('laravel.counter1:1|c|#env:testing', $server1->getLastMessage());
+        $this->assertSame('laravel.counter1:1|c|#app_name:laravel,env:production', $server1->getLastMessage());
         $this->assertTrue($server1->wasSuccessful());
     }
 
