@@ -19,16 +19,6 @@ class DogStatsDServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(
             __DIR__ . '/../config/dog-statsd.php', 'dog-statsd'
         );
-
-//        $this->app['db']->listen(function (QueryExecuted $query) {
-//            $this->app[Client::class]->timing(
-//                'query_time',
-//                $query->time,
-//                [
-//                    'connection_name' => $query->connectionName,
-//                ]
-//            );
-//        });
     }
 
     public function boot(): void
