@@ -13,7 +13,7 @@
          verbose="true"
 >
     <testsuites>
-        <testsuite>
+        <testsuite name="All Tests">
             <directory suffix="Test.php">./tests</directory>
         </testsuite>
     </testsuites>
@@ -23,6 +23,6 @@
         </whitelist>
     </filter>
     <php>
-        <env name="DB_CONNECTION" value="testing"/>
+        <env name="DB_CONNECTION" value="testing" force="true" />
     </php>
 </phpunit>

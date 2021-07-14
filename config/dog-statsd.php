@@ -17,7 +17,7 @@ return [
 
         'server1' => [
             'host' => env('DOG_STATSD_SERVER1_HOST', '127.0.0.1'),
-            'port' => env('DOG_STATSD_SERVER1_PORT', 9125),
+            'port' => env('DOG_STATSD_SERVER1_PORT', 8125),
             'namespace' => 'laravel',
         ],
 
